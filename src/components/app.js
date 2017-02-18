@@ -11,21 +11,24 @@ export default class App extends Component {
     super();
 
     this.state = {
-      gifs: []
+      trendingGifs: []
     }
 
   }
 
-  getData(gifs) {
-    axios.get(GIPHY_URL)
-      .then(res => {
-        const gifs = res.data.data;
-        this.setState({ gifs });
-      })
+  getData(data) {
+
   }
 
-  componentDidMount(gifs) {
-    this.getData(gifs);
+  componentDidMount(data) {
+    axios.get(GIPHY_URL)
+      .then(res => {
+        let trendingGifs = res.data.data;
+        this.setState({ trendingGifs });
+      })
+      .catch(err => {
+        console.log(err);
+      });
   }
 
   render() {
@@ -33,9 +36,9 @@ export default class App extends Component {
       <div>
         <Header />
         <div>
-          {this.state.gifs.map(el => {
+          {this.state.trendingGifs.map(el => {
             return (
-              <h6 key={el.id}><img src={el.bitly_gif_url}></img></h6>
+              <h6 key={el.id}><img src={el.images.fixed_height.url}/></h6>
             )
           })}
         </div>

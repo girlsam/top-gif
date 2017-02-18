@@ -1,8 +1,10 @@
 import React from 'react';
 
-const Header = (props) => {
+const Header = () => {
   return (
-    <h1>Top Gif</h1>
+    <header>
+      Top Gif
+    </header>
   )
 }
 

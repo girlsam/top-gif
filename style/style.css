@@ -1,3 +1,9 @@
-.black {
-  color: black
-}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; }
+
+html {
+  background-color: #eeeeee; }
+
+/*# sourceMappingURL=style.css.map */
