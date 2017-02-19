@@ -3,7 +3,7 @@ import React from 'react';
 const Header = () => {
   return (
     <header>
-      Top Gif
+      <img src="../../assets/topgif.svg"></img>
     </header>
   )
 }
