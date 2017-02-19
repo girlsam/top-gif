@@ -35,10 +35,12 @@ export default class App extends Component {
     return (
       <div>
         <Header />
-        <div>
+        <div className="card-container">
           {this.state.trendingGifs.map(el => {
             return (
-              <h6 key={el.id}><img src={el.images.fixed_height.url}/></h6>
+              <section className="gif-card" key={el.id}>
+                <img src={el.images.fixed_height.url}/>
+              </section>
             )
           })}
         </div>

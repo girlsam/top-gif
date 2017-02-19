@@ -6,10 +6,28 @@
 
 // variables for color, sizing
 $background-color: #eeeeee;
-//$card-color:
+$card-color: #fff;
 //$card-font-color
 //$accent-color: #ff5353;
 
 html {
   background-color: $background-color;
+}
+
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 1em;
+}
+
+.gif-card {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  background: $card-color;
+  border-left: 10px solid #ff5353;
 }
