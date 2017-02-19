@@ -11,24 +11,37 @@ export default class App extends Component {
     super();
 
     this.state = {
-      trendingGifs: []
+      trendingGifs: [],
+      startsAt: 0,
     }
 
-  }
-
-  getData(data) {
+    this.loadGifs = this.loadGifs.bind(this);
 
   }
 
-  componentDidMount(data) {
+  componentWillMount(data) {
     axios.get(GIPHY_URL)
       .then(res => {
         let trendingGifs = res.data.data;
         this.setState({ trendingGifs });
+        let loadedGifs = this.state.loadGifs(this.state.trendingGifs);
       })
       .catch(err => {
         console.log(err);
       });
+  }
+
+  loadGifs(arr) {
+    let size = 5;
+    return arr.slice(0, size).map((el) => {
+      console.log('working');
+      this.state.startsAt += 5;
+      return (
+        <section className="gif-card" key={el.id}>
+          <img src={el.images.fixed_height.url}/>
+        </section>
+      )
+    });
   }
 
   render() {
@@ -36,13 +49,7 @@ export default class App extends Component {
       <div>
         <Header />
         <div className="card-container">
-          {this.state.trendingGifs.map(el => {
-            return (
-              <section className="gif-card" key={el.id}>
-                <img src={el.images.fixed_height.url}/>
-              </section>
-            )
-          })}
+          {this.state.loadedGifs}
         </div>
       </div>
     );
