@@ -7,27 +7,28 @@ const GIPHY_URL='https://api.giphy.com/v1/gifs/trending?api_key=dc6zaTOxFJmzC';
 
 export default class App extends Component {
   constructor(props) {
-
     super();
 
     this.state = {
       trendingGifs: [],
-      startsAt: 0,
-    }
+      startsAt: 0
+    };
 
-    this.loadGifs = this.loadGifs.bind(this);
+    //this.loadGifs = this.loadGifs.bind(this);
 
-  componentDidMount(data) {
-    axios.get(GIPHY_URL)
-      .then(res => {
-        let trendingGifs = res.data.data;
-        this.setState({ trendingGifs });
-        let loadedGifs = this.state.loadGifs(this.state.trendingGifs);
-      })
-      .catch(err => {
-        console.log(err);
-      });
   }
+
+    componentDidMount(data) {
+      axios.get(GIPHY_URL)
+        .then(res => {
+          let trendingGifs = res.data.data;
+          this.setState({ trendingGifs });
+          //let loadedGifs = this.state.loadGifs(this.state.trendingGifs);
+        })
+        .catch(err => {
+          console.log(err);
+        });
+    }
 
   render() {
     return (
@@ -38,6 +39,9 @@ export default class App extends Component {
               <li key={el.id} className="card-wrapper">
                 <section className="card">
                   <img src={el.images.fixed_height.url}/>
+                  <footer>
+                    Test
+                  </footer>
                 </section>
               </li>
             )

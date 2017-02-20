@@ -1,11 +1,19 @@
-import React from 'react';
+import React, { Component } from 'react';
 
-const Button = () => {
-  return (
-    <div className="btn">
-      <button className="btn-load-more">GIF Me More</button>
-    </div>
-  )
+export default class LoadMoreButton extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      icon: ''
+    }
+  }
+
+  render() {
+    return (
+      <div className="btn">
+        <button className="btn-load-more">GIF Me More</button>
+      </div>
+    )
+  }
 }
-
-export default Button;
