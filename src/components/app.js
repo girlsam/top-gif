@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 
-import Header from './Header';
+import LoadMoreButton from './LoadMoreButton';
 
 const GIPHY_URL='https://api.giphy.com/v1/gifs/trending?api_key=dc6zaTOxFJmzC';
 
@@ -13,10 +13,6 @@ export default class App extends Component {
     this.state = {
       trendingGifs: []
     }
-
-  }
-
-  getData(data) {
 
   }
 
@@ -34,16 +30,18 @@ export default class App extends Component {
   render() {
     return (
       <div>
-        <Header />
-        <div className="card-container">
-          {this.state.trendingGifs.map(el => {
+        <ul className="card-container">
+          {this.state.trendingGifs.slice(0, 5).map(el => {
             return (
-              <section className="gif-card" key={el.id}>
-                <img src={el.images.fixed_height.url}/>
-              </section>
+              <li key={el.id} className="card-wrapper">
+                <section className="card">
+                  <img src={el.images.fixed_height.url}/>
+                </section>
+              </li>
             )
           })}
-        </div>
+        </ul>
+        <div><LoadMoreButton /></div>
       </div>
     );
   }
