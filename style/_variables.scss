@@ -1,0 +1,29 @@
+/* Color Variables */
+
+$lightest-grey: #fff;
+$light-grey: #eeeeee;
+$coral: #ff5353;
+
+/* Color Assignments */
+
+$background-color: $light-grey;
+$card-color: $lightest-grey;
+$accent-color: $coral;
+
+/* Font Family */
+@import url('https://fonts.googleapis.com/css?family=Just+Another+Hand|Roboto');
+$fun-font: 'Just Another Hand', cursive;
+$serious-font: 'Roboto', Arial, sans-serif;
+
+/* Media Queries */
+@mixin breakpoint($point) {
+  @if $point == large {
+    @media (min-width: 1200px) { @content; }
+  }
+  @else if $point == medium {
+    @media (min-width: 768px) { @content; }
+  }
+  @else if $point == small {
+    @media (min-width: 480px)  { @content; }
+  }
+}
