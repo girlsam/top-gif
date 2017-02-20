@@ -12,3 +12,24 @@
 
 //show 'load more' button when index < 24
 //hide 'load more' button when index = 24
+
+// {this.state.trendingGifs.map(el => {
+//   return (
+//     <section className="gif-card" key={el.id}>
+//       <img src={el.images.fixed_height.url}/>
+//     </section>
+//   )
+// })}
+
+// loadGifs(arr) {
+//   let size = 5;
+//   return arr.slice(0, size).map((el) => {
+//     console.log('working');
+//     this.state.startsAt += 5;
+//     return (
+//       <section className="gif-card" key={el.id}>
+//         <img src={el.images.fixed_height.url}/>
+//       </section>
+//     )
+//   });
+// }

@@ -11,16 +11,18 @@ export default class App extends Component {
     super();
 
     this.state = {
-      trendingGifs: []
+      trendingGifs: [],
+      startsAt: 0,
     }
 
-  }
+    this.loadGifs = this.loadGifs.bind(this);
 
   componentDidMount(data) {
     axios.get(GIPHY_URL)
       .then(res => {
         let trendingGifs = res.data.data;
         this.setState({ trendingGifs });
+        let loadedGifs = this.state.loadGifs(this.state.trendingGifs);
       })
       .catch(err => {
         console.log(err);
