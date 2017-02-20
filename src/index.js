@@ -8,7 +8,7 @@ import { Router, Route, IndexRoute, Redirect, browserHistory } from 'react-route
 //import reducers from './reducers';
 //const createStoreWithMiddleware = applyMiddleware()(createStore);
 
-import App from './components/app';
+import App from './components/App';
 import Default404 from './components/Default404';
 
 ReactDOM.render(
