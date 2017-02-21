@@ -21,7 +21,7 @@ body {
 /* Start Header Styling */
 header > img {
   margin-top: -3em;
-  margin-bottom: -5em; }
+  margin-bottom: -3em; }
 
 /* End Header Styling */
 /* Start Card Styling */
@@ -64,9 +64,9 @@ header > img {
   background: #eeeeee;
   border: 3px solid #ff5353;
   color: #ff5353;
-  line-height: 2.3;
+  line-height: 3;
   font-family: "Just Another Hand", cursive;
-  font-size: 4em;
+  font-size: 2em;
   cursor: pointer;
   transition: all 0.25s ease; }
   .btn-load-more:hover {
@@ -84,7 +84,7 @@ header > img {
   .social-container .social-text {
     text-decoration: none;
     margin-top: 0.5rem;
-    width: 50%;
+    width: 55%;
     text-align: right;
     color: white;
     text-transform: uppercase;
