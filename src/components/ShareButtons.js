@@ -1,11 +1,17 @@
 import React, { Component } from 'react';
 
-class LoadMoreButton extends Component
-  return (
-    <div className="btn">
-      <button className="btn-load-more">GIF Me More</button>
-    </div>
-  )
-}
+class ShareButtons extends Component {
+  constructor() {
+    super(props);
 
-export default Button;
+    
+  }
+
+  render() {
+    return (
+      <div className="btn">
+        <button className="btn-load-more">GIF Me More</button>
+      </div>
+    )
+  }
+}

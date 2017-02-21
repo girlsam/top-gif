@@ -11,10 +11,9 @@ export default class App extends Component {
 
     this.state = {
       trendingGifs: [],
-      startsAt: 0
+      startsAt: 0,
+      endsAt: 5
     };
-
-    //this.loadGifs = this.loadGifs.bind(this);
 
   }
 
@@ -23,7 +22,6 @@ export default class App extends Component {
         .then(res => {
           let trendingGifs = res.data.data;
           this.setState({ trendingGifs });
-          //let loadedGifs = this.state.loadGifs(this.state.trendingGifs);
         })
         .catch(err => {
           console.log(err);
@@ -47,7 +45,7 @@ export default class App extends Component {
             )
           })}
         </ul>
-        <div><LoadMoreButton /></div>
+        <div onClick={this.loadGif(this.state.trendingGifs).bind(this)}><LoadMoreButton /></div>
       </div>
     );
   }
