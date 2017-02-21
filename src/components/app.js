@@ -12,7 +12,7 @@ export default class App extends Component {
 
     this.state = {
       trendingGifs: [],
-      startAt: 0
+      startAt: 1
     }
 
     this.renderCards = this.renderCards.bind(this);
