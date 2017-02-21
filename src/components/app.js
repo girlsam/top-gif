@@ -45,7 +45,7 @@ export default class App extends Component {
             )
           })}
         </ul>
-        <div onClick={this.loadGif(this.state.trendingGifs).bind(this)}><LoadMoreButton /></div>
+        <div onClick={loadGif(this.state.trendingGifs).bind(this)}><LoadMoreButton /></div>
       </div>
     );
   }
