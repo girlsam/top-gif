@@ -49,8 +49,7 @@ header > img {
     padding: 1em; }
   .card footer {
     height: 3em;
-    text-align: center;
-    background: black; }
+    text-align: center; }
 
 /* End Card Styling */
 /* Start Button Styling */

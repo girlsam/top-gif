@@ -20,3 +20,85 @@
 //     </section>
 //   )
 // })}
+
+renderGifs = (gifs) => {
+  if (!gifs.length) {
+    return [];
+  } else {
+    return gifs.map((el, i) => {
+      <Card key={i} src={el} />
+    });
+  }
+}
+
+import React, { Component } from 'react';
+import axios from 'axios';
+
+import LoadMoreButton from './LoadMoreButton';
+import Card from './Card';
+
+const GIPHY_URL='https://api.giphy.com/v1/gifs/trending?api_key=dc6zaTOxFJmzC';
+
+function renderGifs(gifs) {
+  if (!gifs.length) {
+    return [];
+  } else {
+    return gifs.map((el, i) => {
+      console.log(gifs);
+      <Card key={i} src={el} />
+    });
+  }
+}
+
+const GifCard = (props, {gifs}) => {
+    return (
+      <li key={this.props.key} className="card-wrapper">
+        <section className="card">
+          <img src={this.props.src}/>
+          <footer>
+            Test
+          </footer>
+        </section>
+      </li>
+    )
+  }
+
+export default class App extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      trendingGifs: [],
+    };
+
+    //this.handleClick = this.handleClick.bind(this);
+
+  }
+
+  componentDidMount(data) {
+    axios.get(GIPHY_URL)
+      .then(res => {
+        let trendingGifs = res.data.data;
+        this.setState({ trendingGifs });
+
+      })
+      .catch(err => {
+        console.log('Error', err);
+      });
+  }
+
+  render() {
+    const gifs = renderGifs(this.state.trendingGifs);
+
+    return (
+      <div>
+        <ul className="card-container">
+          <GifCard />
+          {gifs}
+        </ul>
+
+      </div>
+    );
+  }
+
+}
