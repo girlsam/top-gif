@@ -1,16 +1,21 @@
 import React, { Component } from 'react';
 
-class Card extends Component {
-  render() {
-    return (
-      <li key={this.props.id} className="card-wrapper">
-        <section className="card">
-          <img src={this.props.images.fixed_height.url}/>
-          <footer>
-            Test
-          </footer>
-        </section>
-      </li>
-    )
-  }
+let Card = function statelessFunctionComponentClass(props) {
+  let img_url = props.src;
+  let key = props.index;
+  let twitter_share = props.link;
+
+  return (
+    <li key={key} className="card-wrapper">
+      <section className="card">
+        <img src={img_url}/>
+        <footer>
+          <span><a target="_blank" href={twitter_share}>
+Share This on Twitter</a></span><span>Facebook</span>
+        </footer>
+      </section>
+    </li>
+  )
 }
+
+export default Card;
