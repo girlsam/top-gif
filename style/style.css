@@ -41,18 +41,15 @@ header > img {
   padding: 1em;
   border-radius: 10px;
   background: #fff;
-  border-bottom: 10px solid #ff5353; }
+  border-top: 10px solid #ff5353; }
   .card img {
     display: block;
     width: 100%;
     margin: 0 auto;
     padding: 1em; }
-  .card footer {
-    height: 3em;
-    text-align: center; }
 
 /* End Card Styling */
-/* Start Button Styling */
+/* Start Load More Button Styling */
 .btn {
   clear: both;
   margin: 0 auto;
@@ -76,7 +73,37 @@ header > img {
     color: #eeeeee;
     background: #ff5353; }
 
-/* End Button Styling */
-/* Start Media Queries  */
+/* End Load More Button Styling */
+/* Start Social Button Styling  */
+.social-container {
+  display: flex;
+  height: 60px;
+  margin-bottom: -26px;
+  margin-left: -16px;
+  margin-right: -16px; }
+  .social-container .social-text {
+    text-decoration: none;
+    margin-top: 0.5rem;
+    width: 50%;
+    text-align: right;
+    color: white;
+    text-transform: uppercase;
+    font-family: "Roboto", Arial, sans-serif;
+    font-size: 2rem; }
+  .social-container .social-facebook {
+    box-sizing: border-box;
+    flex: 1 0 auto;
+    height: 50px;
+    border-bottom-right-radius: 10px;
+    background: #3b5998; }
+    .social-container .social-facebook:hover {
+      background: #2d4373; }
+  .social-container .social-twitter {
+    flex: 1 0 auto;
+    height: 50px;
+    border-bottom-left-radius: 10px;
+    background: #1da1f2; }
+    .social-container .social-twitter:hover {
+      background: #0c85d0; }
 
 /*# sourceMappingURL=style.css.map */
