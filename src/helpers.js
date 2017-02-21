@@ -102,3 +102,34 @@ export default class App extends Component {
   }
 
 }
+
+export default class Card extends Component {
+  render(props) {
+
+    return (
+      <li key={this.props.key} className="card-wrapper">
+        <section className="card">
+          <img src={this.props.src}/>
+          <footer>
+            Test
+          </footer>
+        </section>
+      </li>
+    )
+  }
+
+}
+
+// handleClick() {
+//   this.setState({
+//     endsAt: this.state.endsAt + parseInt(5)
+//   })
+//   let start = this.state.endsAt;
+//   return this.state.trendingGifs.slice(start, 5).map((el) => {
+//     return (
+//       <section className="card" key={el.id}>
+//         <img src={el.images.fixed_height.url}/>
+//       </section>
+//     )
+//   });
+// }
