@@ -32,7 +32,7 @@ header > img {
   margin: 0 auto;
   width: 100%;
 
-  @mixin breakpoint($medium) {
+  @include breakpoint(medium) {
     margin-top: -1em;
     display: 1 0 auto;
     justify-content: space-between;
@@ -46,7 +46,7 @@ header > img {
   padding: 1em;
   width: 100%;
 
-  @mixin breakpoint($medium) {
+  @include breakpoint(medium) {
     flex-direction: column;
     flex: 1 0 auto;
     width: 50%;
@@ -74,8 +74,8 @@ header > img {
   clear: both;
   margin: 0 auto;
   padding: 1em;
-  @mixin breakpoint($small) {width: 100%}
-  @mixin breakpoint($large) {width:20%}
+  @include breakpoint(small) {width: 100%}
+  @include breakpoint(large) {width:20%}
 }
 
 .btn-load-more {
@@ -98,11 +98,6 @@ header > img {
   &:hover {
     color:$background-color;
     background: $accent-color;
-  }
-
-  @mixin breakpoint($large) {
-    display: inline-block;
-    width: 50%;
   }
 }
 

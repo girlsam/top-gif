@@ -30,12 +30,23 @@ header > img {
   flex-wrap: wrap;
   margin: 0 auto;
   width: 100%; }
+  @media (min-width: 50em) {
+    .card-container {
+      margin-top: -1em;
+      display: 1 0 auto;
+      justify-content: space-between;
+      flex-wrap: wrap; } }
 
 .card-wrapper {
   list-style: none;
   margin: 0 auto;
   padding: 1em;
   width: 100%; }
+  @media (min-width: 50em) {
+    .card-wrapper {
+      flex-direction: column;
+      flex: 1 0 auto;
+      width: 50%; } }
 
 .card {
   padding: 1em;
@@ -54,6 +65,12 @@ header > img {
   clear: both;
   margin: 0 auto;
   padding: 1em; }
+  @media (min-width: 37.5em) {
+    .btn {
+      width: 100%; } }
+  @media (min-width: 70em) {
+    .btn {
+      width: 20%; } }
 
 .btn-load-more {
   display: block;
@@ -65,7 +82,7 @@ header > img {
   border: 3px solid #ff5353;
   color: #ff5353;
   line-height: 3;
-  font-family: "Just Another Hand", cursive;
+  font-family: "Just Another Hand", Arial, cursive;
   font-size: 2em;
   cursor: pointer;
   transition: all 0.25s ease; }
