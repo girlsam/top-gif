@@ -4,14 +4,13 @@ import ShareButtons from './Social';
 
 const Card = (props) => {
   let img_url = props.src;
-  let key = props.index;
   let altText = props.alt
 
   return (
-    <li key={key} className="card-wrapper">
+    <li className="card-wrapper">
       <section className="card">
         <img src={img_url} alt={altText}/>
-        <ShareButtons />
+        <ShareButtons gif_url={img_url}/>
       </section>
     </li>
   )

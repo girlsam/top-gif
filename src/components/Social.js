@@ -5,13 +5,13 @@ export default class ShareButtons extends Component {
   render() {
     let tw_share = {
       name: 'twitter',
-      url: 'https://twitter.com/intent/tweet?hashtags=giphy,topgif&text=Check%20This%20TopGif!&tw_p=tweetbutton&url=https://top-gif.firebaseapp.com',
+      url: `https://twitter.com/intent/tweet?hashtags=giphy,topgif&text=Check%20This%20TopGif!&tw_p=tweetbutton&url=${this.props.gif_url}`,
       icon: 'fa fa-twitter'
     }
 
     let fb_share = {
       name: 'facebook',
-      url: 'https://www.facebook.com/sharer?/s=100&p[url]=https://top-gif.firebaseapp.com',
+      url: `https://www.facebook.com/sharer?/s=100&p[url]=${this.props.gif_url}`,
       icon: 'fa fa-facebook'
     }
 

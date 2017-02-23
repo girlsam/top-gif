@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 
-const LoadMoreButton = () => {
+const LoadMoreButton = (props) => {
   return (
     <div className="btn">
-      <button className="btn-load-more">GIF Me More</button>
+      <button className="btn-load-more" onClick={props.onClick}>GIF Me More</button>
     </div>
   )
 }

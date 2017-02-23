@@ -18,6 +18,8 @@ export default class App extends Component {
     }
 
     this.renderCards = this.renderCards.bind(this);
+    this.handleClick = this.handleClick.bind(this);
+
   }
 
   componentDidMount(data) {
@@ -41,19 +43,21 @@ export default class App extends Component {
   //render Card component dynamically, however, only render first 10 elements, allow user to load more on click -tbd
   renderCards(arr) {
     let start = this.state.startAt;
-    return arr.slice(start, 10).map(this.createCard);
+    return arr.slice(0, start+5).map(this.createCard);
+  }
+
+  handleClick() {
+    console.log('yo');
+    this.setState({
+      startAt:
+      this.state.startAt + 5
+    });
   }
 
   render() {
     //indicate gifs are loading while state is set in component mount, gifs array is empty
     if (!this.state.trendingGifs.length) {
-      return (
-        <div className="load-indicator">
-          <svg className="load" x="0px" y="0px" viewBox="0 0 150 150">
-            <circle id="loading-circle" cx="75" cy="75" r="60"/>
-          </svg>
-        </div>
-      )
+      return <div className="loading">Loading...</div>
     } else {
       //gifs loaded, render cards
       return (
