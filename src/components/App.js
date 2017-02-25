@@ -40,7 +40,7 @@ export default class App extends Component {
     return <Card src={source} key={key} alt={alt}/>
   }
 
-  //render Card component dynamically, however, only render first 10 elements, allow user to load more on click -tbd
+  //render Card component dynamically, however, only render first 5 elements, allow user to load more on click
   renderCards(arr) {
     let start = this.state.startAt;
     return arr.slice(0, start+5).map(this.createCard);
