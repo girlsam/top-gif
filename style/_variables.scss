@@ -29,3 +29,19 @@ $serious-font: 'Roboto', Arial, sans-serif;
     @media (min-width: 37.5em)  { @content; }
   }
 }
+
+/* Custom Style Mixins */
+@mixin social-buttons($color) {
+  box-sizing: border-box;
+  flex: 1 0 auto;
+  height: 50px;
+  background: $color;
+  &:hover {
+    background: darken($color, 10);
+  }
+}
+
+@keyframes rotate {
+  0% { transform: rotate(0deg) }
+  100% { transform: rotate(360deg) }
+}

@@ -125,23 +125,25 @@ header > img {
   }
 
   .social-facebook {
-    box-sizing: border-box;
-    flex: 1 0 auto;
-    height: 50px;
+    @include social-buttons($facebook-color);
     border-bottom-right-radius: 10px;
-    background: $facebook-color;
-    &:hover {
-      background: darken($facebook-color, 10);
-    }
   }
 
   .social-twitter {
-    flex: 1 0 auto;
-    height: 50px;
+    @include social-buttons($twitter-color);
     border-bottom-left-radius: 10px;
-    background: $twitter-color;
-    &:hover {
-      background: darken($twitter-color, 10);
-    }
   }
+}
+
+/* End Social Button Styling */
+/* Start Spinner Styling  */
+
+.spinner {
+  margin: 0 auto;
+  height: 2em;
+  width: 2em;
+  animation: rotate 0.8s infinite linear;
+  border: 5px solid $accent-color;
+  border-radius: 50%;
+  border-left-color: transparent;
 }
