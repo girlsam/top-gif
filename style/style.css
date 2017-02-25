@@ -3,6 +3,12 @@
 /* Font Family */
 @import url("https://fonts.googleapis.com/css?family=Just+Another+Hand|Roboto");
 /* Media Queries */
+/* Custom Style Mixins */
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg); }
+  100% {
+    transform: rotate(360deg); } }
 *,
 *:after,
 *:before {
@@ -111,16 +117,28 @@ header > img {
     box-sizing: border-box;
     flex: 1 0 auto;
     height: 50px;
-    border-bottom-right-radius: 10px;
-    background: #3b5998; }
+    background: #3b5998;
+    border-bottom-right-radius: 10px; }
     .social-container .social-facebook:hover {
       background: #2d4373; }
   .social-container .social-twitter {
+    box-sizing: border-box;
     flex: 1 0 auto;
     height: 50px;
-    border-bottom-left-radius: 10px;
-    background: #1da1f2; }
+    background: #1da1f2;
+    border-bottom-left-radius: 10px; }
     .social-container .social-twitter:hover {
       background: #0c85d0; }
+
+/* End Social Button Styling */
+/* Start Spinner Styling  */
+.spinner {
+  margin: 0 auto;
+  height: 2em;
+  width: 2em;
+  animation: rotate 0.8s infinite linear;
+  border: 5px solid #ff5353;
+  border-radius: 50%;
+  border-left-color: transparent; }
 
 /*# sourceMappingURL=style.css.map */

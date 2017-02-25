@@ -3,6 +3,7 @@ import axios from 'axios';
 
 import LoadMoreButton from './LoadMoreButton';
 import Card from './Card';
+import PageEnd from './PageEnd';
 
 const GIPHY_URL='https://api.giphy.com/v1/gifs/trending?api_key=dc6zaTOxFJmzC';
 
@@ -57,7 +58,7 @@ export default class App extends Component {
   render() {
     //indicate gifs are loading while state is set in component mount, gifs array is empty
     if (!this.state.trendingGifs.length) {
-      return <div className="loading">Loading...</div>
+      return <div className="spinner"></div>
     } else {
       //gifs loaded, render cards
       return (
@@ -65,7 +66,8 @@ export default class App extends Component {
            <ul className="card-container">
              {this.renderCards.call(this, this.state.trendingGifs)}
            </ul>
-           { this.state.startAt < 20 ? <LoadMoreButton onClick={this.handleClick} /> : null }
+           { this.state.startAt < 20 ? <LoadMoreButton onClick={this.handleClick} />
+           : <PageEnd /> }
          </main>
       )
     }
