@@ -141,4 +141,12 @@ header > img {
   border-radius: 50%;
   border-left-color: transparent; }
 
+/* End Spinner Styling */
+/* Start Page End Styling  */
+.page-end {
+  margin: 0 auto;
+  width: 50%;
+  text-align: center;
+  padding: 0.5em; }
+
 /*# sourceMappingURL=style.css.map */

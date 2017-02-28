@@ -48,7 +48,6 @@ export default class App extends Component {
   }
 
   handleClick() {
-    console.log('yo');
     this.setState({
       startAt:
       this.state.startAt + 5
