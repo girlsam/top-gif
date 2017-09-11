@@ -10,7 +10,7 @@ const Card = (props) => {
     <li className="card-wrapper">
       <section className="card">
         <img src={img_url} alt={altText}/>
-        <ShareButtons gif_url={img_url}/>
+        <ShareButtons gif_url={img_url} onClick={props.onClick}/>
       </section>
     </li>
   )
