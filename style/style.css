@@ -32,27 +32,17 @@ header > img {
 /* End Header Styling */
 /* Start Card Styling */
 .card-container {
-  display: flex;
-  flex-wrap: wrap;
+  column-width: 30em;
+  column-gap: 1em;
   margin: 0 auto;
   width: 100%; }
-  @media (min-width: 50em) {
-    .card-container {
-      margin-top: -1em;
-      display: 1 0 auto;
-      justify-content: space-between;
-      flex-wrap: wrap; } }
 
 .card-wrapper {
+  display: inline-block;
   list-style: none;
   margin: 0 auto;
   padding: 1em;
   width: 100%; }
-  @media (min-width: 50em) {
-    .card-wrapper {
-      flex-direction: column;
-      flex: 1 0 auto;
-      width: 50%; } }
 
 .card {
   padding: 1em;
@@ -129,6 +119,18 @@ header > img {
     border-bottom-left-radius: 10px; }
     .social-container .social-twitter:hover {
       background: #0c85d0; }
+  .social-container .social-add {
+    box-sizing: border-box;
+    flex: 1 0 auto;
+    height: 50px;
+    background: #ff5353;
+    cursor: pointer; }
+    .social-container .social-add:hover {
+      background: #ff2020; }
+    .social-container .social-add .social-text {
+      width: 60%; }
+    .social-container .social-add:hover {
+      color: white; }
 
 /* End Social Button Styling */
 /* Start Spinner Styling  */

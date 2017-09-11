@@ -27,30 +27,18 @@ header > img {
 /* End Header Styling */
 /* Start Card Styling */
 .card-container {
-  display: flex;
-  flex-wrap: wrap;
+  column-width: 30em;
+  column-gap: 1em;
   margin: 0 auto;
   width: 100%;
-
-  @include breakpoint(medium) {
-    margin-top: -1em;
-    display: 1 0 auto;
-    justify-content: space-between;
-    flex-wrap: wrap;
-  }
 }
 
 .card-wrapper {
+  display: inline-block;
   list-style: none;
   margin: 0 auto;
   padding: 1em;
   width: 100%;
-
-  @include breakpoint(medium) {
-    flex-direction: column;
-    flex: 1 0 auto;
-    width: 50%;
-  }
 }
 
 .card {
@@ -132,6 +120,19 @@ header > img {
   .social-twitter {
     @include social-buttons($twitter-color);
     border-bottom-left-radius: 10px;
+  }
+
+  .social-add {
+    @include social-buttons($accent-color);
+    cursor: pointer;
+
+    .social-text {
+      width: 60%;
+    }
+
+    &:hover {
+      color: white;
+    }
   }
 }
 

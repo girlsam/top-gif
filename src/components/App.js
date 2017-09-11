@@ -11,8 +11,6 @@ export default class App extends Component {
   constructor(props) {
     super(props);
 
-    //initial state has empty array for ajax response payload
-    //initial state has startAt set to 0 representing first index of gif array. Intention is to have event handle onclick which incrementally loads gif elements
     this.state = {
       trendingGifs: [],
       startAt: 0
@@ -20,13 +18,21 @@ export default class App extends Component {
 
     this.renderCards = this.renderCards.bind(this);
     this.handleClick = this.handleClick.bind(this);
-
+    this.createCard = this.createCard.bind(this);
+    this.addCookie = this.addCookie.bind(this);
   }
 
   componentDidMount(data) {
     axios.get(GIPHY_URL)
       .then(res => {
         let trendingGifs = res.data.data;
+        let dataForCookies = [];
+        trendingGifs.forEach(el => {
+          let fixed_height_url = el.fixed_height_url;
+          let key = el.id;
+          let url = el.url
+          dataForCookies.push({fixed_height_url, key, url})
+        })
         this.setState({ trendingGifs });
       })
       .catch(err => {
@@ -38,20 +44,24 @@ export default class App extends Component {
     let key = props.id;
     let source = props.images.fixed_height.url;
     let alt = props.url;
-    return <Card src={source} key={key} alt={alt}/>
+    return <Card src={source} key={key} alt={alt} onClick={this.addCookie}/>
   }
 
   //render Card component dynamically, however, only render first 5 elements, allow user to load more on click
   renderCards(arr) {
     let start = this.state.startAt;
-    return arr.slice(0, start+5).map(this.createCard);
+    return arr.slice(0, start+6).map(this.createCard);
   }
 
   handleClick() {
     this.setState({
       startAt:
-      this.state.startAt + 5
+      this.state.startAt + 6
     });
+  }
+
+  addCookie() {
+    console.log('here');
   }
 
   render() {
