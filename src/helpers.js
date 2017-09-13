@@ -1,11 +1,4 @@
-export function getCookie(name, value) {
-  let date = new Date();
-  date.setTime(date.getTime() + (exdays*24*60*60*1000);
-  let expires = `expires ${date.toUTCString()}`;
-  document.cookie = `${name}=${value};${expires}path=/`;
-}
-
-export function setCookie(name) {
+export function getCookie(name) {
   let cookieName = name;
   let cookieVal = document.cookie.split(';');
   cookieVal.forEach(el => {
@@ -13,3 +6,11 @@ export function setCookie(name) {
     console.log(cookie);
   })
 };
+
+export function setCookie(name, value) {
+  console.log('here');
+  let date = new Date();
+  date.setTime(date.getTime() + (date*24*60*60*1000));
+  let expires = `expires ${date.toUTCString()}`;
+  document.cookie = `${name}=${value};${expires}path=/`;
+}

@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 
-import LoadMoreButton from './LoadMoreButton';
 import Card from './Card';
+import LoadMoreButton from './LoadMoreButton';
 import PageEnd from './PageEnd';
+
+import { getCookie, setCookie } from './../helpers';
 
 const GIPHY_URL='https://api.giphy.com/v1/gifs/trending?api_key=dc6zaTOxFJmzC';
 
@@ -17,7 +19,7 @@ export default class App extends Component {
     }
 
     this.renderCards = this.renderCards.bind(this);
-    this.handleClick = this.handleClick.bind(this);
+    this.handleLoadMoreClick = this.handleLoadMoreClick.bind(this);
     this.createCard = this.createCard.bind(this);
     this.addCookie = this.addCookie.bind(this);
   }
@@ -44,7 +46,7 @@ export default class App extends Component {
     let key = props.id;
     let source = props.images.fixed_height.url;
     let alt = props.url;
-    return <Card src={source} key={key} alt={alt} onClick={this.addCookie}/>
+    return <Card src={source} key={key} alt={alt} onClick={this.addCookie} cookieData={source}/>
   }
 
   //render Card component dynamically, however, only render first 5 elements, allow user to load more on click
@@ -53,16 +55,19 @@ export default class App extends Component {
     return arr.slice(0, start+6).map(this.createCard);
   }
 
-  handleClick() {
+  handleLoadMoreClick() {
     this.setState({
       startAt:
       this.state.startAt + 6
     });
   }
 
-  addCookie() {
-    console.log('here');
+  addCookieClick(e) {
+    let cookie = e.target.dataset.cookie;
+    setCookie('faves', cookie);
   }
+
+  //create function to toggle <i> class onClick
 
   render() {
     //indicate gifs are loading while state is set in component mount, gifs array is empty
@@ -75,7 +80,7 @@ export default class App extends Component {
            <ul className="card-container">
              {this.renderCards.call(this, this.state.trendingGifs)}
            </ul>
-           { this.state.startAt < 20 ? <LoadMoreButton onClick={this.handleClick} />
+           { this.state.startAt < 20 ? <LoadMoreButton onClick={this.handleLoadMoreClick} />
            : <PageEnd /> }
          </main>
       )
