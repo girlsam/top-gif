@@ -1,10 +1,12 @@
 export function getCookie(name) {
   let cookieName = name;
   let cookieVal = document.cookie.split(';');
-  cookieVal.forEach(el => {
-    let cookie = el[i];
-    console.log(cookie);
-  })
+  let cookie;
+  cookieVal.forEach(i => {
+    cookie = i;
+    return cookie;
+  });
+  return cookie;
 };
 
 export function setCookie(name, value) {
