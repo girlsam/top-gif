@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import axios from 'axios';
 
 import Card from './Card';
-import LoadMoreButton from './LoadMoreButton';
+import LoadMoreButton from './buttons/LoadMoreButton';
+import MyFaveGifs from './buttons/MyGifsButton';
 import PageEnd from './PageEnd';
 
 import { getCookie, setCookie } from './../helpers';
@@ -15,13 +16,15 @@ export default class App extends Component {
 
     this.state = {
       trendingGifs: [],
-      startAt: 0
+      startAt: 0,
+      showMyGifs: false
     }
 
-    this.renderCards = this.renderCards.bind(this);
-    this.handleLoadMoreClick = this.handleLoadMoreClick.bind(this);
+    this.addCookieClick = this.addCookieClick.bind(this);
     this.createCard = this.createCard.bind(this);
-    this.addCookie = this.addCookie.bind(this);
+    this.getMyGifs = this.getMyGifs.bind(this);
+    this.handleLoadMoreClick = this.handleLoadMoreClick.bind(this);
+    this.renderCards = this.renderCards.bind(this);
   }
 
   componentDidMount(data) {
@@ -46,7 +49,7 @@ export default class App extends Component {
     let key = props.id;
     let source = props.images.fixed_height.url;
     let alt = props.url;
-    return <Card src={source} key={key} alt={alt} onClick={this.addCookie} cookieData={source}/>
+    return <Card src={source} key={key} alt={alt} onClick={this.addCookieClick} cookieData={source}/>
   }
 
   //render Card component dynamically, however, only render first 5 elements, allow user to load more on click
@@ -67,23 +70,32 @@ export default class App extends Component {
     setCookie('faves', cookie);
   }
 
+  getMyGifs() {
+    let cookie = getCookie('faves');
+    let img = cookie.split('=')[1];
+  }
+
   //create function to toggle <i> class onClick
 
   render() {
     //indicate gifs are loading while state is set in component mount, gifs array is empty
-    if (!this.state.trendingGifs.length) {
-      return <div className="spinner"></div>
-    } else {
-      //gifs loaded, render cards
-      return (
-        <main>
-           <ul className="card-container">
-             {this.renderCards.call(this, this.state.trendingGifs)}
-           </ul>
-           { this.state.startAt < 20 ? <LoadMoreButton onClick={this.handleLoadMoreClick} />
-           : <PageEnd /> }
-         </main>
-      )
-    }
+    return (
+      <div>
+        <MyFaveGifs getGifs={this.getMyGifs}/>
+        {
+          !this.state.trendingGifs.length ? (
+            <div className="spinner"></div>
+          ) : (
+            <main>
+               <ul className="card-container">
+                 {this.renderCards.call(this, this.state.trendingGifs)}
+               </ul>
+               { this.state.startAt < 20 ? <LoadMoreButton onClick={this.handleLoadMoreClick} />
+               : <PageEnd /> }
+             </main>
+          )
+        }
+      </div>
+    )
   }
 }

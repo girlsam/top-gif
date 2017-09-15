@@ -1,6 +1,6 @@
 import React from 'react';
 
-import ShareButtons from './ShareButtons';
+import ShareButtons from './buttons/ShareButtons';
 
 const Card = (props) => {
 
