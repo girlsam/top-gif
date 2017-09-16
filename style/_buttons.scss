@@ -1,0 +1,74 @@
+.btn {
+  clear: both;
+  margin: 0 auto;
+  padding: 1em;
+  @include breakpoint(small) {width: 100%}
+  @include breakpoint(large) {width:20%}
+}
+
+.btn-load-more {
+  display: block;
+  width: 100%;
+  outline:none;
+  text-align: center;
+  border-radius: 20px;
+  background: $background-color;
+  border: 3px solid $accent-color;
+  color: $accent-color;
+  line-height: 3;
+  font: {
+    family: $fun-font;
+    size: 2em;
+  }
+  cursor: pointer;
+  transition: all 0.25s ease;
+
+  &:hover {
+    color:$background-color;
+    background: $accent-color;
+  }
+}
+
+.social-container {
+  display: flex;
+  height: 60px;
+  margin-bottom: -26px;
+  margin-left: -16px;
+  margin-right: -16px;
+
+  .social-text {
+    text-decoration: none;
+    margin-top: 0.5rem;
+    width: 55%;
+    text-align: right;
+    color: white;
+    text-transform: uppercase;
+    font: {
+      family: $serious-font;
+      size: 2rem;
+    }
+  }
+
+  .social-facebook {
+    @include social-buttons($facebook-color);
+    border-bottom-right-radius: 10px;
+  }
+
+  .social-twitter {
+    @include social-buttons($twitter-color);
+    border-bottom-left-radius: 10px;
+  }
+
+  .social-add {
+    @include social-buttons($accent-color);
+    cursor: pointer;
+
+    .social-text {
+      width: 60%;
+    }
+
+    &:hover {
+      color: white;
+    }
+  }
+}

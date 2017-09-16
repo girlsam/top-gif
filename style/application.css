@@ -24,13 +24,25 @@ body {
   max-width: 100%;
   background-color: #eeeeee; }
 
-/* Start Header Styling */
 header > img {
   margin-top: -7em;
   margin-bottom: -11em; }
 
-/* End Header Styling */
-/* Start Card Styling */
+.spinner {
+  margin: 0 auto;
+  height: 2em;
+  width: 2em;
+  animation: rotate 0.8s infinite linear;
+  border: 5px solid #ff5353;
+  border-radius: 50%;
+  border-left-color: transparent; }
+
+.page-end {
+  margin: 0 auto;
+  width: 50%;
+  text-align: center;
+  padding: 0.5em; }
+
 .card-container {
   column-width: 30em;
   column-gap: 1em;
@@ -55,8 +67,30 @@ header > img {
     margin: 0 auto;
     padding: 1em; }
 
-/* End Card Styling */
-/* Start Load More Button Styling */
+.card-container {
+  column-width: 30em;
+  column-gap: 1em;
+  margin: 0 auto;
+  width: 100%; }
+
+.card-wrapper {
+  display: inline-block;
+  list-style: none;
+  margin: 0 auto;
+  padding: 1em;
+  width: 100%; }
+
+.card {
+  padding: 1em;
+  border-radius: 10px;
+  background: #fff;
+  border-top: 10px solid #ff5353; }
+  .card img {
+    display: block;
+    width: 100%;
+    margin: 0 auto;
+    padding: 1em; }
+
 .btn {
   clear: both;
   margin: 0 auto;
@@ -86,8 +120,6 @@ header > img {
     color: #eeeeee;
     background: #ff5353; }
 
-/* End Load More Button Styling */
-/* Start Social Button Styling  */
 .social-container {
   display: flex;
   height: 60px;
@@ -132,23 +164,4 @@ header > img {
     .social-container .social-add:hover {
       color: white; }
 
-/* End Social Button Styling */
-/* Start Spinner Styling  */
-.spinner {
-  margin: 0 auto;
-  height: 2em;
-  width: 2em;
-  animation: rotate 0.8s infinite linear;
-  border: 5px solid #ff5353;
-  border-radius: 50%;
-  border-left-color: transparent; }
-
-/* End Spinner Styling */
-/* Start Page End Styling  */
-.page-end {
-  margin: 0 auto;
-  width: 50%;
-  text-align: center;
-  padding: 0.5em; }
-
-/*# sourceMappingURL=style.css.map */
+/*# sourceMappingURL=application.css.map */
