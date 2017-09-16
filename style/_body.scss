@@ -1,0 +1,38 @@
+*,
+*:after,
+*:before {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100%;
+  margin: 0 auto;
+  max-width: 100%;
+  background-color: $background-color;
+}
+
+header > img {
+  margin-top: -7em;
+  margin-bottom: -11em;
+}
+
+.spinner {
+  margin: 0 auto;
+  height: 2em;
+  width: 2em;
+  animation: rotate 0.8s infinite linear;
+  border: 5px solid $accent-color;
+  border-radius: 50%;
+  border-left-color: transparent;
+}
+
+.page-end {
+  margin: 0 auto;
+  width: 50%;
+  text-align: center;
+  padding: 0.5em;
+}
