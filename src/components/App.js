@@ -6,7 +6,7 @@ import LoadMoreButton from './buttons/LoadMoreButton';
 import MyFaveGifs from './buttons/MyGifsButton';
 import PageEnd from './PageEnd';
 
-import { getCookie, setCookie } from './../helpers';
+import { getCookie, setCookie } from './../utils/utilities';
 
 const GIPHY_URL='https://api.giphy.com/v1/gifs/trending?api_key=dc6zaTOxFJmzC';
 
