@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 
-import Card from './Card';
 import LoadMoreButton from './buttons/LoadMoreButton';
-import MyFaveGifs from './buttons/MyGifsButton';
-import PageEnd from './PageEnd';
+//import Card from './Card';
+import CardContainer from './CardContainer';
 
-import { getCookie, setCookie } from './../utils/utilities';
+import PageEnd from './PageEnd';
 
 const GIPHY_URL='https://api.giphy.com/v1/gifs/trending?api_key=dc6zaTOxFJmzC';
 
@@ -14,30 +13,21 @@ export default class App extends Component {
   constructor(props) {
     super(props);
 
+    //initial state has empty array for ajax response payload
+    //initial state has startAt set to 0 representing first index of gif array. Intention is to have event handle onclick which incrementally loads gif elements
     this.state = {
       trendingGifs: [],
-      startAt: 0,
-      showMyGifs: false
+      startAt: 0
     }
 
-    this.addCookieClick = this.addCookieClick.bind(this);
-    this.createCard = this.createCard.bind(this);
-    this.getMyGifs = this.getMyGifs.bind(this);
-    this.handleLoadMoreClick = this.handleLoadMoreClick.bind(this);
-    this.renderCards = this.renderCards.bind(this);
+    this.handleClick = this.handleClick.bind(this);
+
   }
 
-  componentDidMount(data) {
+  componentWillMount(data) {
     axios.get(GIPHY_URL)
       .then(res => {
         let trendingGifs = res.data.data;
-        let dataForCookies = [];
-        trendingGifs.forEach(el => {
-          let fixed_height_url = el.fixed_height_url;
-          let key = el.id;
-          let url = el.url
-          dataForCookies.push({fixed_height_url, key, url})
-        })
         this.setState({ trendingGifs });
       })
       .catch(err => {
@@ -45,57 +35,27 @@ export default class App extends Component {
       });
   }
 
-  createCard(props) {
-    let key = props.id;
-    let source = props.images.fixed_height.url;
-    let alt = props.url;
-    return <Card src={source} key={key} alt={alt} onClick={this.addCookieClick} cookieData={source}/>
-  }
-
-  //render Card component dynamically, however, only render first 5 elements, allow user to load more on click
-  renderCards(arr) {
-    let start = this.state.startAt;
-    return arr.slice(0, start+6).map(this.createCard);
-  }
-
-  handleLoadMoreClick() {
+  handleClick() {
     this.setState({
       startAt:
-      this.state.startAt + 6
+      this.state.startAt + 5
     });
   }
 
-  addCookieClick(e) {
-    let cookie = e.target.dataset.cookie;
-    setCookie('faves', cookie);
-  }
-
-  getMyGifs() {
-    let cookie = getCookie('faves');
-    let img = cookie.split('=')[1];
-  }
-
-  //create function to toggle <i> class onClick
-
   render() {
     //indicate gifs are loading while state is set in component mount, gifs array is empty
-    return (
-      <div>
-        <MyFaveGifs getGifs={this.getMyGifs}/>
-        {
-          !this.state.trendingGifs.length ? (
-            <div className="spinner"></div>
-          ) : (
-            <main>
-               <ul className="card-container">
-                 {this.renderCards.call(this, this.state.trendingGifs)}
-               </ul>
-               { this.state.startAt < 20 ? <LoadMoreButton onClick={this.handleLoadMoreClick} />
-               : <PageEnd /> }
-             </main>
-          )
-        }
-      </div>
-    )
+
+    if (!this.state.trendingGifs.length) {
+      return <div className="spinner"></div>
+    } else {
+      //gifs loaded, render cards
+      return (
+        <main>
+          <CardContainer
+            cards={this.state.trendingGifs}
+          />
+         </main>
+      )
+    }
   }
 }
